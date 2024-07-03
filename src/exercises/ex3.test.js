@@ -1,5 +1,3 @@
-// ex3.test.js
-
 //importe la fonction initializeForm depuis votre fichier principal ex3.js.
 const { initializeForm } = require('./ex3');
 
