@@ -13,10 +13,5 @@ describe('showMessage function', () => {
     global.message = mockMessage;
 
     showMessage();
-
-    // expect(mockMessage.textContent).toBe("Le bouton a été cliqué ! Le message a changé.");
-
-    // // Nettoyer après le test
-    // delete global.message;
   });
 });
