@@ -1,13 +1,15 @@
-// script.js
-const addButton = document.getElementById('add-class-button');
-const element = document.getElementById('element');
 
+// Fonction pour ajouter une classe à l'élément
 function addClassToElement() {
-  // Ajoute la classe Bootstrap 'bg-danger' pour un fond rouge
-  element.classList.add('bg-danger');
+  const element = document.getElementById('element');
+  element.classList.add('new-class');
 }
 
-addButton.addEventListener('click', addClassToElement);
+// Ajouter un écouteur d'événement au bouton
+document.addEventListener('DOMContentLoaded', () => {
+  const button = document.getElementById('add-class-button');
+  button.addEventListener('click', addClassToElement);
+});
 
-module.exports = addClassToElement;
-
+// Exporter la fonction pour les tests
+export { addClassToElement };

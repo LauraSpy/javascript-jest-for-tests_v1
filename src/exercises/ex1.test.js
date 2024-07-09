@@ -1,33 +1,36 @@
-const fs = require('fs');
-const path = require('path');
-const { JSDOM } = require('jsdom');
 
-// Lire le contenu du fichier HTML
-const html = fs.readFileSync(path.resolve(__dirname, '..', '..', 'index.html'), 'utf8');
+// Ex1.test.js
 
-// Créer un DOM virtuel à partir du fichier HTML
-const dom = new JSDOM(html, { runScripts: "dangerously" });
-
-// Définir global.document et global.window
-global.document = dom.window.document;
-global.window = dom.window;
-
-// Importer le script à tester
-require('./ex1');
+import { addClassToElement } from './ex1';
 
 describe('addClassToElement function', () => {
-  test('adds bg-danger class to element when button is clicked', () => {
-    const addButton = document.getElementById('add-class-button');
-    const element = document.getElementById('element');
-
-    // Vérifier l'état initial
-    expect(element.classList.contains('bg-danger')).toBe(false);
-
-    // Simuler un clic sur le bouton
-    addButton.click();
-
-    // Vérifier que la classe a été ajoutée
-    expect(element.classList.contains('bg-danger')).toBe(true);
+  // Configurer le DOM avant chaque test
+  beforeEach(() => {
+    document.body.innerHTML = `
+      <button id="add-class-button">Add Class</button>
+      <div id="element" class="initial-class"></div>
+    `;
   });
 
+  test('adds new-class to the element when button is clicked', () => {
+    // Simuler le chargement du DOM
+    document.dispatchEvent(new Event('DOMContentLoaded'));
+
+    // Obtenir les références aux éléments
+    const button = document.getElementById('add-class-button');
+    const element = document.getElementById('element');
+
+    // Vérifier la classe initiale
+    expect(element.classList.contains('initial-class')).toBe(true);
+    expect(element.classList.contains('new-class')).toBe(false);
+
+    // Simuler un clic sur le bouton
+    button.click();
+
+    // Vérifier que la nouvelle classe a été ajoutée
+    expect(element.classList.contains('initial-class')).toBe(true);
+    expect(element.classList.contains('new-class')).toBe(true);
+  });
 });
+
+

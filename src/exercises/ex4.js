@@ -1,31 +1,33 @@
-/* EXAMPLE OF AN API REQUEST */
+// script.js (ou ex4.js)
+import { fetchData } from './api.js';
 
-/*
-let longitude = 44.83; // Bordeaux longitude
-let latitude = -0.57; // Bordeaux latitude
-let api_key = '891fcaaa0f613df11046ed15bd1a4607'; // Teacher's API Key
-let api_url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${api_key}`; // API URL
-
-const getWeather = () => {
-  axios.get(api_url)
-  .then((response)=>console.log(response.data.main.temp - 273.15))
-  .catch((err)=> console.log(err))
-}
-getWeather();
-*/
-
-
-
-
-export const fetchData = async () => {
-    // Your code here: Implement an API request (e.g., fetch data from a fictional API).
-  };
-  
-  // script.js
-  import { fetchData } from './ex4';
-  
-  function displayData() {
-    // Your code here: Fetch and display data from the API using fetchData.
+async function displayData() {
+  try {
+    const weatherData = await fetchData();
+    const paragraphElement = document.getElementById('paragraph');
+    if (paragraphElement) {
+      paragraphElement.textContent = `Weather data: City - ${weatherData.city}, Temperature - ${weatherData.temperature}°C`;
+    } else {
+      console.error('Element with id "paragraph" not found');
+    }
+  } catch (error) {
+    console.error('Error fetching or displaying data:', error);
   }
+}
+
+// Écouteur d'événement pour DOMContentLoaded
+document.addEventListener('DOMContentLoaded', displayData);
+
+// Garder la fonctionnalité du bouton de suppression
+document.addEventListener('DOMContentLoaded', () => {
+  const removeButton = document.getElementById('remove-paragraph-button');
+  const paragraphContainer = document.getElementById('paragraph-container');
   
-  document.addEventListener('DOMContentLoaded', displayData);
+  if (removeButton && paragraphContainer) {
+    removeButton.addEventListener('click', () => {
+      paragraphContainer.innerHTML = '';
+    });
+  } else {
+    console.error('Button or container not found');
+  }
+});

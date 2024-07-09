@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for ex2.js</title>
+    <title>Code coverage report for ex5.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="prettify.css" />
     <link rel="stylesheet" href="base.css" />
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="index.html">All files</a> ex2.js</h1>
+        <h1><a href="index.html">All files</a> ex5.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">55.55% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/9</span>
+                <span class='fraction'>5/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/4</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">55.55% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/9</span>
+                <span class='fraction'>5/6</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -78,64 +78,37 @@
 <a name='L13'></a><a href='#L13'>13</a>
 <a name='L14'></a><a href='#L14'>14</a>
 <a name='L15'></a><a href='#L15'>15</a>
-<a name='L16'></a><a href='#L16'>16</a>
-<a name='L17'></a><a href='#L17'>17</a>
-<a name='L18'></a><a href='#L18'>18</a>
-<a name='L19'></a><a href='#L19'>19</a>
-<a name='L20'></a><a href='#L20'>20</a>
-<a name='L21'></a><a href='#L21'>21</a>
-<a name='L22'></a><a href='#L22'>22</a>
-<a name='L23'></a><a href='#L23'>23</a>
-<a name='L24'></a><a href='#L24'>24</a>
-<a name='L25'></a><a href='#L25'>25</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L16'></a><a href='#L16'>16</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// ex2.js
-let clickMeButton;
-let message;
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
+// Sélectionner les éléments du DOM
+const hoverArea = document.getElementById('hover-area');
+const interactionResult = document.getElementById('interaction-result');
 &nbsp;
-// Cette fonction sera appelée dans l'environnement du navigateur
-function <span class="fstat-no" title="function not covered" >initializeDOM(</span>) {
-<span class="cstat-no" title="statement not covered" >  clickMeButton = document.getElementById('click-me-button');</span>
-<span class="cstat-no" title="statement not covered" >  message = document.getElementById('message');</span>
-<span class="cstat-no" title="statement not covered" >  clickMeButton.addEventListener('click', showMessage);</span>
-}
+// Ajouter un écouteur d'événement pour le survol de la zone
+hoverArea.addEventListener('mouseover', () =&gt; {
+  // Mettre à jour le texte lorsque l'utilisateur survole la zone
+  interactionResult.textContent = 'You are hovering over the area!';
+});
 &nbsp;
-function showMessage() {
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (message) {
-<span class="cstat-no" title="statement not covered" >    message.textContent = "Le bouton a été cliqué ! Le message a changé.";</span>
-  }
-  return "Le bouton a été cliqué ! Le message a changé.";
-}
-&nbsp;
-// Exécuter initializeDOM seulement si nous sommes dans un navigateur
-<span class="missing-if-branch" title="else path not taken" >E</span>if (typeof window !== 'undefined') {
-  window.addEventListener('DOMContentLoaded', initializeDOM);
-}
-&nbsp;
-module.exports = { showMessage, initializeDOM };
-&nbsp;</pre></td></tr></table></pre>
+// Ajouter un écouteur d'événement pour la sortie de la zone
+hoverArea.addEventListener('mouseout', <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+  // Réinitialiser le texte lorsque l'utilisateur quitte la zone
+<span class="cstat-no" title="statement not covered" >  interactionResult.textContent = 'Hover over the area.';</span>
+});</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
