@@ -1,27 +1,28 @@
-// Importez la fonction fetchData depuis le fichier api.js
+// Importez la fonction fetchData depuis le fichier api.js : c'est la fonction testée
 import { fetchData } from './api';
 
-// Importez la bibliothèque fetch-mock pour simuler les appels API
+// Importez la bibliothèque fetch-mock pour simuler les appels API (qui sont utilisées dans Fetch)
+      // importer la possibilité de simuler des appels API permet de ne pas utiliser de crédit en utilisant des API payantes
 import fetchMock from 'jest-fetch-mock';
 
-// Activez les mocks fetch pour tous les tests dans ce fichier
+// Active la simulation (mocks) des appels 'fetch' pour tous les tests dans ce fichier
 fetchMock.enableMocks();
 
-// Groupe de tests pour la fonction fetchData
+// Groupe de tests pour la fonction fetchData (tous les tests à l'intérieur de ce bloc sont liés à cette fonction)
 describe('fetchData function', () => {
-  // Avant chaque test, réinitialisez les mocks fetch
+  // Avant chaque test individuel, réinitialise les mocks fetch : garantit que chaque test commence avec un état propre
   beforeEach(() => {
     fetchMock.resetMocks();
   });
 
   // Test : vérifier si fetchData renvoie les données correctes
   test('returns weather data for Rennes', async () => {
-    // Simulez une réponse API avec des données météo fictives
+    // Simule une réponse API avec des données météo fictives
     fetchMock.mockResponseOnce(JSON.stringify({
       main: { temp: 293.15 } // 20°C en Kelvin
     }));
 
-    // Appelez la fonction fetchData
+    // Appel de la fonction fetchData
     const result = await fetchData();
 
     // Vérifiez si fetch a été appelé avec la bonne URL
@@ -36,20 +37,8 @@ describe('fetchData function', () => {
     });
   });
 
-
-
-  /* ICI UN TEST POUR GENERER UN CODE D'ERREUR */
-  // // Test : vérifier si fetchData gère correctement les erreurs
-  // test('handles API errors', async () => {
-  //   // Simulez une erreur de réseau
-  //   fetchMock.mockRejectOnce(new Error('API is down'));
-
-  //   // Vérifiez si la fonction fetchData lance une erreur
-  //   await expect(fetchData()).rejects.toThrow('API is down');
-  // });
-
   // Test : vérifier si fetchData gère les réponses non-OK
-
+        //  important car il vérifie la gestion des erreurs HTTP
 
   test('handles non-OK responses', async () => {
     // Simulez une réponse 404 Not Found

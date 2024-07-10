@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">95.45% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>21/22</span>
+                <span class='fraction'>14/14</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">95.45% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>21/22</span>
+                <span class='fraction'>14/14</span>
             </div>
         
             
@@ -101,90 +101,96 @@
 <a name='L36'></a><a href='#L36'>36</a>
 <a name='L37'></a><a href='#L37'>37</a>
 <a name='L38'></a><a href='#L38'>38</a>
-<a name='L39'></a><a href='#L39'>39</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Constants for API request
 const RENNES_LAT = 48.117266;
 const RENNES_LON = -1.677793;
 const API_KEY = '08cb792ca8906ae401dad848ccb6410d';
 const API_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${RENNES_LAT}&amp;lon=${RENNES_LON}&amp;appid=${API_KEY}`;
 &nbsp;
+//déclaration et exportation de la fonction asynchrone "fetchData"
+    // Asynchrone = permet d'exécuter un code sans bloquer l'exécution du reste du programme. 
+      // l'utilisation de la fonction 'async' permet d'utiliser l'instruction 'await' pour attendre la résolution d'une promesse
+      // résolution d'une promesse = pause l'exécution de la fonction jusqu'à ce que la "promesse" de fournir un résultat à un moment donné dans le futur soit résolue.
+      // une promesse est un objet représentant une opération asynchrone, utilisé à gérer le résultat/erreur d'une opération qui prendra du temps à s'exécuter. 
 export const fetchData = async () =&gt; {
-  console.log('fetchData function called');
-  try {
-    console.log('API URL:', API_URL);
-    
-    const response = await fetch(API_URL);
-    console.log('Response received:', response.status, response.statusText);
-    
+  //bloc 'try-catch' pour gérer les erreurs potentiels
+      // try-catch = 'try' va contenir le code qui pourrait potentiellement générer une erreur et 'catch' capture et gère l'erreur si elle survient. 
+  try {    
+    //requête à l'API
+    const response = await fetch(API_URL);    
+    //vérifier si requête ok, sinon = erreur
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
     
-    const data = await response.json();
-    console.log('Data received:', data);
-    
+    //convertit la réponse en json 
+        // pourquoi ? Lors d'une requête HTTP pour obtenir des données, la réponse est donnée au format JSON. 
+        // pour les utiliser dans le programme, écrit en JS, il faut le convertir en 'objet' JS, et 'response.json()' fait cette conversion.
+    const data = await response.json();    
+    //convertisseur Kelvin - Celsius
     const temperatureCelsius = data.main.temp - 273.15;
     
     const result = {
       city: 'Rennes',
+      //température arrondie à la décimale
       temperature: temperatureCelsius.toFixed(1)
     };
-    console.log('Returning result:', result);
     return result;
+    //Et ici : Capture toute erreur qui pourrait se produire dans le bloc try et la relance.
   } catch (error) {
-    console.error('Error in fetchData:', error);
     throw error;
   }
 };
-&nbsp;
-// Example of how to use the API (for reference, not part of the module)
-const exampleUsage = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
-<span class="cstat-no" title="statement not covered" >  console.log('Example API URL:', API_URL);</span>
-};</pre></td></tr></table></pre>
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-07-09T13:19:42.949Z
+                at 2024-07-10T09:08:02.741Z
             </div>
         <script src="prettify.js"></script>
         <script>
