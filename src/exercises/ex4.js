@@ -12,15 +12,9 @@ async function displayData() {
 // Écouteur d'événement pour DOMContentLoaded
 document.addEventListener('DOMContentLoaded', displayData);
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   const removeButton = document.getElementById('remove-paragraph-button');
-//   const paragraphContainer = document.getElementById('paragraph-container');
-  
-//   if (removeButton && paragraphContainer) {
-//     removeButton.addEventListener('click', () => {
-//       paragraphContainer.innerHTML = '';
-//     });
-//   } else {
-//     console.error('Button or container not found');
-//   }
-// });
+//'addEventListener' = dit au navigateur de surveiller un certain type d'événement et d'exécuter une fonction spécifique quand cet événement se produit
+
+//'DOMContentLoaded' est l'événement "écouter" dans ce code. 
+//Cet événement se déclenche lorsque le document HTML initial a été complètement chargé et analysé, sans attendre que les feuilles de style, images et sous-frames aient terminé de charger.
+
+//'displayData' est la fonction exécutée lorsque l'événement 'DOMContentLoaded' se produit. 

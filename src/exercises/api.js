@@ -1,4 +1,4 @@
-// Constants for API request
+// Déclarer des fonctions pour inscrire les données des requêtes API
 const RENNES_LAT = 48.117266;
 const RENNES_LON = -1.677793;
 const API_KEY = '08cb792ca8906ae401dad848ccb6410d';
@@ -13,7 +13,7 @@ export const fetchData = async () => {
   //bloc 'try-catch' pour gérer les erreurs potentiels
       // try-catch = 'try' va contenir le code qui pourrait potentiellement générer une erreur et 'catch' capture et gère l'erreur si elle survient. 
   try {    
-    //requête à l'API
+    //requête à l'API (parcourt l'API pour aller trouver les infos)
     const response = await fetch(API_URL);    
     //vérifier si requête ok, sinon = erreur
     if (!response.ok) {

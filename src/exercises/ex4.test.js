@@ -1,16 +1,16 @@
 // Importez la fonction fetchData depuis le fichier api.js : c'est la fonction testée
 import { fetchData } from './api';
 
-// Importez la bibliothèque fetch-mock pour simuler les appels API (qui sont utilisées dans Fetch)
-      // importer la possibilité de simuler des appels API permet de ne pas utiliser de crédit en utilisant des API payantes
+// Importe la bibliothèque fetch-mock, spécifiquement conçue pour simuler les appels API
+      // utile surtout pour ne pas utiliser de crédit en utilisant des API payantes
 import fetchMock from 'jest-fetch-mock';
 
-// Active la simulation (mocks) des appels 'fetch' pour tous les tests dans ce fichier
+// Active la simulation (les 'mocks') des appels 'fetch' pour tous les tests dans ce fichier
 fetchMock.enableMocks();
 
 // Groupe de tests pour la fonction fetchData (tous les tests à l'intérieur de ce bloc sont liés à cette fonction)
 describe('fetchData function', () => {
-  // Avant chaque test individuel, réinitialise les mocks fetch : garantit que chaque test commence avec un état propre
+  // Avant chaque test individuel, réinitialise les 'mocks fetch'  : garantit que chaque test commence avec un état propre
   beforeEach(() => {
     fetchMock.resetMocks();
   });
