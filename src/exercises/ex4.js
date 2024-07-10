@@ -1,12 +1,19 @@
 import { fetchData } from './api.js';
 
 async function displayData() {
+  //j'utilise 'try' ici pour vérifier si j'ai une erreur ou pas, intéressant pour vérifier si je n'ai pas d'erreur pour récupérer les infos de l'API
   try {
     const weatherData = await fetchData();
     const paragraphElement = document.getElementById('paragraph');
     if (paragraphElement) {
       paragraphElement.textContent = `Weather data: City - ${weatherData.city}, Temperature - ${weatherData.temperature}°C`;
-    } 
+    } console.log(weatherData);
+    // ici j'ajoute catch pour vérifier si je capte une erreur 
+  } catch (error) {
+    console.error('Error in displayData:', error);
+  }
+  /* on peut aussi finir la boucle "try" avec un "finally", ou même les deux, catch and finally 
+    on peut aussi écrire dans le catch la possibilité qu'il continue malgré l'erreur */
 }
 
 // Écouteur d'événement pour DOMContentLoaded

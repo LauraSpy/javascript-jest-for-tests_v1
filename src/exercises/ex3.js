@@ -7,7 +7,7 @@ function initializeForm() {
   function validateEmail() {
     //crée une constante pour la zone où l'utilisateur note son mail
     const email = emailInput.value;
-    //ici on décrit les caractères qui seront utilisé
+    //ici on décrit les caractères qui seront utilisé (appelé 'Regex' (Regular Expression))
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     
     //cette condition va vérifier si le mail est valide ou pas, en testant les caractères utilisés avec emailPattern
@@ -20,10 +20,10 @@ function initializeForm() {
     }
   }
 
-  // Cette condition vérifie si emailForm existe (pour éviter des erreurs si l'élément n'est pas trouvé dans 
-  // le DOM). Si oui, elle ajoute un écouteur d'événements sur la soumission du formulaire. e.preventDefault() 
-  // empêche le formulaire d'être soumis normalement (ce qui rechargerait la page), permettant ainsi de valider 
-  // l'email sans recharger la page.
+  /* Cette condition vérifie si emailForm existe (pour éviter des erreurs si l'élément n'est pas trouvé dans 
+  le DOM). Si oui, elle ajoute un écouteur d'événements sur la soumission du formulaire. e.preventDefault() 
+  empêche le formulaire d'être soumis normalement (ce qui rechargerait la page), permettant ainsi de valider 
+  l'email sans recharger la page. */
   if (emailForm) {
     //
     emailForm.addEventListener('submit', function (e) {
@@ -35,15 +35,15 @@ function initializeForm() {
   return { validateEmail };
 }
 
-// vérifie si le code s'exécute dans un navigateur (où window existe) et, si oui, 
-// initialise le formulaire une fois que le DOM est entièrement chargé.
+/* vérifie si le code s'exécute dans un navigateur (où window existe) et, si oui, 
+  initialise le formulaire une fois que le DOM est entièrement chargé. */
 if (typeof window !== 'undefined') {
   window.addEventListener('DOMContentLoaded', initializeForm);
 }
 
 // Pour les tests
-//Cette partie est pour l'environnement Node.js (comme dans les tests), 
-//permettant d'exporter la fonction initializeForm pour qu'elle puisse être importée ailleurs.
+/* Cette partie est pour l'environnement Node.js (comme dans les tests), 
+   permettant d'exporter la fonction initializeForm pour qu'elle puisse être importée ailleurs. */
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { initializeForm };
 }
